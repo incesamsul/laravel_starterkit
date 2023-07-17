@@ -46,12 +46,7 @@
 
 <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
 
-{{-- Dropzone cdn --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"
-    integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
+<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 
 <!-- JS Libraies -->
 <script src="{{ asset('plugins/datatables/datatables.min.js') }}"></script>

@@ -3,12 +3,7 @@
 @section('content')
 <section class="section">
 
-    @if (auth()->user()->role != 1)
     @include('pages.profile.general')
-    @else
-    @include('pages.profile.general')
-    @endif
-
 
 
 </section>

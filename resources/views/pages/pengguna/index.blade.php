@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="card-body p-0">
-                    <table class="table table-striped table-hover table-user table-action-hover">
+                    <table class="table table-bordered table-striped table-hover table-user table-action-hover">
                         <thead>
                             <tr>
                                 <th width="5%" class="sorting" data-sorting_type="asc" data-column_name="id"
@@ -31,12 +31,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @include('pages.pengguna.users_data')
+                            @foreach ($pengguna as $p)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $p->name }}</td>
+                                <td>{{ $p->email }}</td>
+                                <td>{{ $p->role->name }}</td>
+                                <td class="option">
+                                    <div class="btn-group dropleft btn-option">
+                                        <i type="button" class="dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </i>
+                                        <div class="dropdown-menu">
+                                            {{-- <a data-pengguna='@json($p)' data-toggle="modal" data-target="#modalPengguna" class="dropdown-item kaitkan" href="#"><i class="fas fa-link"> Kaitkan data</i></a> --}}
+                                            <a data-pengguna='@json($p)' data-toggle="modal"
+                                                data-target="#modalPengguna" class="dropdown-item edit" href="#"><i
+                                                    class="fas fa-pen"> Edit</i></a>
+                                            <a data-id_pengguna="{{ $p->id }}" class="dropdown-item hapus" href="#"><i
+                                                    class="fas fa-trash">
+                                                    Hapus</i></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
-                    <input type="hidden" name="hidden_page" id="hidden_page" value="1" />
-                    <input type="hidden" name="hidden_column_name" id="hidden_column_name" value="id" />
-                    <input type="hidden" name="hidden_sort_type" id="hidden_sort_type" value="asc" />
+
                 </div>
             </div>
         </div>
@@ -55,24 +77,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            {{-- MODAL BODY UNTUK MEMBATALKAN PENGAITAN DATA --}}
-            <div class="modal-body" id="batal-kaitkan-body">
-                <div id="response-linked-data" data-asset_url="{{ asset('img/svg_animated/loading.svg') }}">
-                    <div class="row">
-                        <div class="col-sm-12 text-center">
-                            <img src="{{ asset('img/svg_animated/loading.svg') }}" alt="" width="100" class="loading">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{--MODAL BODY UNTUK MENCARI DATA YANG INGIN DI KAITKAN DENGAN USER --}}
-            <div class="modal-body" id="kaitkan-body">
-                <input type="hidden" id="id_user">
-                <input type="text" autocomplete="off" class="form-control" placeholder="Cari Data ..." id="cari-data">
-                <div id="response-data" data-asset_url="{{ asset('img/svg_animated/loading.svg') }}">
-                </div>
-            </div>
-            {{-- MODAL BODY UNTUK TAMBAH USER DAN EDIT USER --}}
+
             <div class="modal-body" id="main-body">
                 {{-- @if (session('message'))
                 {{ sweetAlert(session('message'), 'success') }}
@@ -91,8 +96,10 @@
                     <div class="form-group">
                         <label>Role</label>
                         <select class="form-control" name="tipe_pengguna" id="tipe-pengguna">
-                            <option>user</option>
-                            <option>Administrator</option>
+                            <!-- <option value="1">Administrator</option> -->
+                            @foreach($role as $row)
+                            <option value="{{$row->id}}">{{ $row->name}} </option>
+                            @endforeach
                         </select>
                     </div>
             </div>
@@ -110,90 +117,7 @@
 $(document).ready(function() {
 
 
-    function clear_icon() {
-        $('#id_icon').html('');
-        $('#post_title_icon').html('');
-    }
 
-    function fetch_data(page, sort_type, sort_by, query, filter) {
-        $.ajax({
-            url: "/admin/fetch_data?page=" + page + "&sortby=" + sort_by + "&sorttype=" + sort_type +
-                "&query=" + query + "&filter=" + filter,
-            success: function(data) {
-                console.log(data)
-                // $('tbody').html('');
-                $('tbody').html(data);
-            },
-            beforeSend: function() {
-                showLoading('tbody', 150, true);
-            },
-            complete: function() {
-                $('.loading').remove();
-            },
-            error: function(err) {
-                console.log(err);
-            }
-        })
-    }
-
-    $(document).on('keyup', '#cari-data-pengguna', function() {
-        var query = $('#cari-data-pengguna').val();
-        var column_name = $('#hidden_column_name').val();
-        var sort_type = $('#hidden_sort_type').val();
-        var page = $('#hidden_page').val();
-        var filter = $('#filter-data-pengguna').val();
-        fetch_data(page, sort_type, column_name, query, filter);
-    });
-
-    $(document).on('click', '.sorting', function() {
-        var column_name = $(this).data('column_name');
-        var order_type = $(this).data('sorting_type');
-        var reverse_order = '';
-        if (order_type == 'asc') {
-            $(this).data('sorting_type', 'desc');
-            reverse_order = 'desc';
-            clear_icon();
-            $('#' + column_name + '_icon').html(
-                '<span class="glyphicon glyphicon-triangle-bottom"></span>');
-        }
-        if (order_type == 'desc') {
-            $(this).data('sorting_type', 'asc');
-            reverse_order = 'asc';
-            clear_icon
-            $('#' + column_name + '_icon').html(
-                '<span class="glyphicon glyphicon-triangle-top"></span>');
-        }
-        $('#hidden_column_name').val(column_name);
-        $('#hidden_sort_type').val(reverse_order);
-        var page = $('#hidden_page').val();
-        var query = $('#cari-data-pengguna').val();
-        var filter = $('#filter-data-pengguna').val();
-        fetch_data(page, reverse_order, column_name, query, filter);
-    });
-
-    $(document).on('change', '#filter-data-pengguna', function() {
-        var query = $('#cari-data-pengguna').val();
-        var column_name = $('#hidden_column_name').val();
-        var sort_type = $('#hidden_sort_type').val();
-        var page = $('#hidden_page').val();
-        var filter = $(this).val();
-        fetch_data(page, sort_type, column_name, query, filter);
-    })
-
-    $(document).on('click', '.pagination a', function(event) {
-        event.preventDefault();
-        var page = $(this).attr('href').split('page=')[1];
-        $('#hidden_page').val(page);
-        var column_name = $('#hidden_column_name').val();
-        var sort_type = $('#hidden_sort_type').val();
-
-        var query = $('#cari-data-pengguna').val();
-
-        $('li').removeClass('active');
-        $(this).parent().addClass('active');
-        var filter = $('#filter-data-pengguna').val();
-        fetch_data(page, sort_type, column_name, query, filter);
-    });
 
 
     // TOMBOL EDIT USER

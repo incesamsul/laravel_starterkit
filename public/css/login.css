@@ -14,7 +14,7 @@ body {
 }
 
 .card.kategori.active {
-    border: 1px solid #73bbb0;
+    border: 1px solid #FC544B;
     background-color: #a54e3114;
 }
 
@@ -25,7 +25,7 @@ body {
 }
 
 .card.kategori:hover {
-    border: 1px solid #73bbb0;
+    border: 1px solid #FC544B;
     background-color: #a54e3114;
 }
 
@@ -70,7 +70,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #73bbb0 !important;
+    color: #FC544B !important;
 }
 
 .navbar-bg {
@@ -78,11 +78,11 @@ h6 {
 }
 
 .text-main {
-    color: #73bbb0 !important;
+    color: #FC544B !important;
 }
 
 .bg-main {
-    background-color: #73bbb0;
+    background-color: #FC544B;
 }
 
 .bg-main:hover {
@@ -133,11 +133,11 @@ body.show-spinner>main {
 .sidebar-menu li.active a.nav-link {
     font-size: 14px !important;
     border-radius: 15px !important;
-    color: #73bbb0 !important;
+    color: #FC544B !important;
 }
 
 .sidebar-mini li.active a.nav-link {
-    background-color: #73bbb0 !important;
+    background-color: #FC544B !important;
     box-shadow: none !important;
     color: white !important;
 }
@@ -236,7 +236,7 @@ ul.timeline>li:before {
 /* my background color */
 
 .bg-soft-danger {
-    background-color: #73bbb011 !important;
+    background-color: #FC544B11 !important;
 }
 
 .bg-soft-primary {

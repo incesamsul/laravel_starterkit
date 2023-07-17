@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +25,8 @@ class Admin extends Controller
 
     public function pengguna()
     {
-        $data['pengguna'] = $this->userModel->getAllUser();
+        $data['pengguna'] = User::all();
+        $data['role'] = Role::all();
         return view('pages.pengguna.index', $data);
     }
 
@@ -78,7 +79,7 @@ class Admin extends Controller
             'name' => $request->nama,
             'email' => $request->email,
             'password' => bcrypt($request->email),
-            'role' => $request->tipe_pengguna,
+            'role_id' => $request->tipe_pengguna,
         ]);
         return redirect('/admin/pengguna')->with('message', 'Pengguna Berhasil di tambahkan');
     }
@@ -91,7 +92,7 @@ class Admin extends Controller
         $user->update([
             'name' => $request->nama,
             'email' => $request->email,
-            'role' => $request->tipe_pengguna,
+            'role_id' => $request->tipe_pengguna,
         ]);
         return redirect('/admin/pengguna')->with('message', 'Pengguna Berhasil di update');
     }

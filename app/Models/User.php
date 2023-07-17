@@ -39,17 +39,8 @@ class User extends Authenticatable
     ];
 
 
-    public function getAllUser()
+    public function role()
     {
-        return DB::table('users')
-            ->paginate(5);
-    }
-
-    public function getUserProfile($idUser)
-    {
-        return DB::table('users')
-            ->join('profile', 'id_user', '=', 'users.id')
-            ->where('id_user', $idUser)
-            ->first();
+        return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 }

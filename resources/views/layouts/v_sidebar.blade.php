@@ -21,13 +21,26 @@
 
 
 
-            @if (auth()->user()->role == 'Administrator')
+            @if (auth()->user()->role_id == '1')
             {{-- MENU ADMIN --}}
             <li class="menu-header">Admin</li>
 
 
+
+
+            <li class="" id="liRole"><a class="nav-link" href="{{ URL::to('/admin/role') }}"><i class="far fa-user"></i>
+                    <span>Role</span></a></li>
+
+            <li class="" id="liMenu"><a class="nav-link" href="{{ URL::to('/admin/menu') }}"><i
+                        class="far fa-list-alt"></i>
+                    <span>Menu</span></a></li>
+
+
             <li class="" id="liManajemenPengguna"><a class="nav-link" href="{{ URL::to('/admin/pengguna') }}"><i
                         class="far fa-user"></i> <span>Pengguna</span></a></li>
+            <li class="" id="liRoleMenu"><a class="nav-link" href="{{ URL::to('/admin/role_menu') }}"><i
+                        class="far fa-list-alt"></i>
+                    <span>Role Menu</span></a></li>
             {{-- END OF MENU ADMIN --}}
             @endif
 

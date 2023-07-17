@@ -91,6 +91,7 @@
                         </li>
                         <li class="media">
                             <div class="media-body">
+
                                 @if ($user)
                                 <table class="table table-striped">
                                     <tr>

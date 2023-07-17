@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\FavoritModel;
-use App\Models\KategoriModel;
+
 use App\Models\LogAktivitasModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
@@ -10,21 +9,7 @@ use PhpParser\Node\Expr\FuncCall;
 
 use function PHPUnit\Framework\isNull;
 
-function getKategoriMenu(){
-    return KategoriModel::all();
-}
 
-function getNamaKategoriById($idKategori){
-    return KategoriModel::where('id_kategori',$idKategori)->first();
-}
-
-
-function isThisMyFavorit($idInfo){
-    return FavoritModel::where([
-        'id_user' => auth()->user()->id,
-        'id_info' => $idInfo
-    ])->first();
-}
 
 function removeSpace($string)
 {

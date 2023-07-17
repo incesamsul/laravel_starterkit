@@ -26,7 +26,7 @@ body {
 }
 
 .card.kategori.active {
-    border: 1px solid #00C6A9;
+    border: 1px solid #FC544B;
     background-color: #a54e3114;
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 .card.kategori:hover {
-    border: 1px solid #00C6A9;
+    border: 1px solid #FC544B;
     background-color: #a54e3114;
 }
 
@@ -50,7 +50,8 @@ body {
 }
 
 .main-wrapper {
-    background: url(../img/pattern/bg4png.png) !important;
+    /* background: url(../img/pattern/bg4png.png) !important; */
+    background-color: #F7F8FF;
     background-repeat: no-repeat !important;
     /* background-position: 100px !important; */
     background-size: cover !important;
@@ -82,27 +83,27 @@ h3,
 h4,
 h5,
 h6 {
-    color: #00C6A9 !important;
+    color: #FC544B !important;
 }
 
 .navbar-bg {
-    background-color: #F9F9FB !important;
+    background-color: #F7F8FF !important;
 }
 
 .text-main {
-    color: #00C6A9 !important;
+    color: #FC544B !important;
 }
 
 .bg-main {
-    background-color: #00C6A9;
+    background-color: #FC544B;
 }
 
 .bg-main:hover {
-    background-color: #73bbb0 !important;
+    background-color: #c25d5d !important;
 }
 
 .bg-main:focus {
-    background-color: #73bbb0 !important;
+    background-color: #c25d5d !important;
 }
 
 textarea {
@@ -126,7 +127,7 @@ body.show-spinner>main {
 
 
 .sidebar-menu li a i {
-    color: #73bbb0 !important;
+    color: #c25d5d !important;
     font-size: 20px;
 }
 
@@ -145,11 +146,11 @@ body.show-spinner>main {
 .sidebar-menu li.active a.nav-link {
     font-size: 14px !important;
     border-radius: 15px !important;
-    color: #00C6A9 !important;
+    color: #FC544B !important;
 }
 
 .sidebar-mini li.active a.nav-link {
-    background-color: #00C6A9 !important;
+    background-color: #FC544B !important;
     box-shadow: none !important;
     color: white !important;
 }
@@ -248,7 +249,7 @@ ul.timeline>li:before {
 /* my background color */
 
 .bg-soft-danger {
-    background-color: #00C6A911 !important;
+    background-color: #FC544B11 !important;
 }
 
 .bg-soft-primary {
@@ -433,4 +434,35 @@ a:hover {
         opacity: 0;
         visibility: hidden;
     }
+}
+
+.page-item.active .page-link {
+    color: #fff !important;
+    background-color: #FC544B !important;
+    border-color: #FC544B !important;
+}
+
+.page-link {
+    color: #FC544B !important;
+    background-color: #fff !important;
+    border: 1px solid #dee2e6 !important;
+}
+
+.page-link:hover {
+    color: #fff !important;
+    background-color: #FC544B !important;
+    border-color: #FC544B !important;
+}
+
+.icon-folder i {
+    font-size: 100px !important;
+}
+
+.icon-folder {
+    transition: .5s;
+    cursor: pointer;
+}
+
+.icon-folder:hover {
+    background: #eee !important;
 }
