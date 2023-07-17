@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1']], function () {
         Route::delete('/menu/delete/{id}', [MenuController::class, 'delete']);
 
         Route::get('/role_menu', [RoleMenuController::class, 'index']);
+        Route::post('/role_menu', [RoleMenuController::class, 'store']);
         Route::get('/role_menu/{role_id}', [RoleMenuController::class, 'role_menu']);
     });
 });

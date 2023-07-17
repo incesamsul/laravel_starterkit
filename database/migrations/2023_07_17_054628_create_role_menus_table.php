@@ -13,8 +13,13 @@ class CreateRoleMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('role_menus', function (Blueprint $table) {
+        Schema::create('role_menu', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('menu_id');
+            $table->string('permissions')->nullable();
+            $table->foreign('menu_id')->references('id')->on('menu')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('role')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateRoleMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role_menus');
+        Schema::dropIfExists('role_menu');
     }
 }
