@@ -31,12 +31,7 @@
                             <div class="media-title">Jenis Profile</div>
                         </div>
                     </li>
-                    {{-- <li class="media">
-              <div class="media-body">
-                  <div class="float-right"><div class="font-weight-600 text-muted text-small"><i class="badge badge-danger">Tidak Aktif</i></div></div>
-                  <div class="media-title">Bot Telegram</div>
-              </div>
-            </li> --}}
+
                     <li class="media">
                         <div class="media-body">
                             <div class="float-right">
@@ -56,16 +51,7 @@
                             </div>
                         </div>
                     </li>
-                    {{-- <li class="media">
-                <div class="media-body">
-                  <div class="form-group">
-                      <label for="exampleFormControlInput1">Aktivasi Bot Telegram</label>
-                      <input type="foto" class="form-control" id="exampleFormControlInput1" placeholder="ID Telegram">
-                    </div>
-                </div>
-              </li>
-              <p>Bot Telegram SIAKAD STMIK AKBA
-                  Aktifkan fitur Bot Telegram dengan mendaftarkan ID Telegram Anda. Fitur ini akan memberikan layanan notifikasi dan akses perintah SIAKAD STMIK AKBA melalui aplikasi Telegram. Klik SASiakadBot untuk menjalankan bot ini.</p> --}}
+
                 </ul>
             </div>
         </div>
@@ -93,31 +79,30 @@
                             <div class="media-body">
 
                                 @if ($user)
-                                <table class="table table-striped">
-                                    <tr>
-                                        <td class="bg-soft-primary">Nama</td>
-                                        <td>{{ $user->name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-soft-primary">Jensi Kelamin</td>
-                                        <td>{{ $user->jenis_kelamin }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-soft-primary">Tempat Dan Tanggal Lahir</td>
-                                        <td>{{ $user->tempat_lahir . '  ' . $user->tanggal_lahir }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-soft-primary">Alamat</td>
-                                        <td>{{ $user->alamat }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-soft-primary">Telepon</td>
-                                        <td>{{ $user->no_telp }}</td>
-                                    </tr>
-                                </table>
-
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td class="bg-soft-primary">Nama</td>
+                                            <td>{{ $user->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-soft-primary">Jensi Kelamin</td>
+                                            <td>{{ $user->jenis_kelamin }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-soft-primary">Tempat Dan Tanggal Lahir</td>
+                                            <td>{{ $user->tempat_lahir . '  ' . $user->tanggal_lahir }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-soft-primary">Alamat</td>
+                                            <td>{{ $user->alamat }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-soft-primary">Telepon</td>
+                                            <td>{{ $user->no_telp }}</td>
+                                        </tr>
+                                    </table>
                                 @else
-                                <div class="alert alert-secondary">No user data ..</div>
+                                    <div class="alert alert-secondary">No user data ..</div>
                                 @endif
                             </div>
                         </li>
@@ -127,9 +112,7 @@
                                     data-toggle="modal" data-target="#modal">
                                     <i class="fas fa-camera"></i> Ganti Foto Profile
                                 </a>
-                                {{-- <a href="" class="btn bg-main text-white btn-lg btn-block btn-icon-split">
-                                    <i class="fas fa-pen"></i> Edit Biodata
-                                </a>  --}}
+
                             </div>
                         </li>
                     </ul>

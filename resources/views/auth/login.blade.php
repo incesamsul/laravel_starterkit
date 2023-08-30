@@ -3,106 +3,95 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Login &mdash;x</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- General CSS Files -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="{{ asset('stisla') }}/assets/css/style.css">
-    <link rel="stylesheet" href="{{ asset('stisla') }}/assets/css/components.css">
+    <title>SI Pengaduan masyarakat</title>
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="https://example.com/favicon.png" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
+    <!-- OwlCarousel CDN for image slider-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+
 </head>
 
-<style>
-body {
-    background: url('img/png/white.png') !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    background-attachment: fixed !important;
-}
-</style>
-
 <body>
-    <div id="app">
-        <section class="section">
-            <div class="container mt-5">
-                <div class="row">
-                    <div
-                        class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                        <div class="login-brand">
-                            <img src="{{ asset('img/png/white.png') }}" width="100">
-                        </div>
-
-                        <div class="card card-main">
-                            <div class="card-header">
-                                <h4>Login</h4>
-                            </div>
-                            @if (session('fail'))
-                            <p class="text-main">{{ session('fail') }}</p>
-                            @endif
-
-                            <div class="card-body">
-                                <form action="{{ URL::to('/postlogin') }}" method="post">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="email">email</label>
-                                        <input id="email" type="text" class="form-control" name="email" tabindex="1"
-                                            required autofocus>
-                                        <div class="invalid-feedback">
-                                            Please fill in your email
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="d-block">
-                                            <label for="password" class="control-label">Password</label>
-                                            <div class="float-right">
-                                                <a href="auth-forgot-password.html" class="text-small">
-                                                    <!-- Forgot Password? -->
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <input id="password" type="password" class="form-control" name="password"
-                                            tabindex="2" required>
-                                        <div class="invalid-feedback">
-                                            please fill in your password
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="remember" class="custom-control-input"
-                                                tabindex="3" id="remember-me">
-                                            <label class="custom-control-label" for="remember-me">Remember Me</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button name="signIn" type="submit"
-                                            class="btn bg-main  text-white btn-lg btn-block" tabindex="4">
-                                            Login
-                                        </button>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-                        <div class="simple-footer">
-                            Copyright &copy;
-                        </div>
-                    </div>
+    <section class="login-block">
+        <div class="container-fluid login-wrapper ">
+            <div class="row login-row">
+                <div class="col-md-8 banner-sec d-flex flex-column text-center">
+                    <img src="{{ asset('img/svg/ilustration/maps.svg') }}" alt="" width="600">
+                    <p class="text-secondary"><strong>based</strong></p>
+                    <small class="pb-5 text-secondary"> all in one system.</small>
                 </div>
+                <div class="col-md-4 login-sec ">
+                    <h2><a href="{{ URL::to('/') }}" class="text-main">based</a></h2>
+                    <p class="text-secondary"><small>hm</small></p>
+                    {{-- <p class="text-secondary"><small>login dengan google atau masukkan kredensial anda</small></p> --}}
+                    @if (session('fail'))
+                        <p class="text-danger"><small>{{ session('fail') }}</small></p>
+                    @endif
+                    @if (session('success'))
+                        <p class="m-0 mt-3 p-0 text-success">{{ session('success') }}</p>
+                    @endif
+                    {{-- <div class="socialite-wrapper mb-3">
+                        <button type="submit" class="btn form-control btn-socialite main-radius">
+                            <i class="google-color fa-brands fa-google"></i>
+                            <strong>Login Dengan Google</strong>
+                        </button>
+                    </div> --}}
+
+                    {{-- <div class="text-center my-3">
+                        <div class="or or--x" aria-role="presentation">Atau</div>
+                    </div> --}}
+                    <form action="{{ URL::to('/postlogin') }}" method="post">
+                        @csrf
+                        <div class="form-group text-secondary">
+                            <i class="fa fa-user" style="font-size: 12px"></i>
+                            <label for="email" class="text-uppercase "><strong>Email</strong></label>
+                            <input name="email" type="text" class="form-control border-0"
+                                placeholder="Masukkan email anda">
+
+                        </div>
+                        <div class="form-group text-secondary">
+                            <i class="fa fa-key" style="font-size: 12px"></i>
+                            <label for="password" class="text-uppercase"><strong>Password</strong></label>
+                            <input name="password" type="password" class="form-control border-0"
+                                placeholder="Masukkan password anda">
+                        </div>
+                        {{-- <a hre f="{{ URL::to('/lupa-kata') }}" class="forgot"><u> Forgot Your Password?</u></a> --}}
+                        <button type="submit" class="btn btn-block login-button main-radius">Login</button>
+                    </form>
+                </div>
+
             </div>
-        </section>
-    </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> --}}
+    <script src="https://kit.fontawesome.com/3423f55a30.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
 
 
+        });
+    </script>
 </body>
 
 </html>

@@ -26,7 +26,7 @@ body {
 }
 
 .card.kategori.active {
-    border: 1px solid #FC544B;
+    border: 1px solid #5340B4;
     background-color: #a54e3114;
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 .card.kategori:hover {
-    border: 1px solid #FC544B;
+    border: 1px solid #5340B4;
     background-color: #a54e3114;
 }
 
@@ -83,7 +83,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #FC544B !important;
+    color: #5340B4 !important;
 }
 
 .navbar-bg {
@@ -91,19 +91,19 @@ h6 {
 }
 
 .text-main {
-    color: #FC544B !important;
+    color: #5340B4 !important;
 }
 
 .bg-main {
-    background-color: #FC544B;
+    background-color: #5340B4;
 }
 
 .bg-main:hover {
-    background-color: #c25d5d !important;
+    background-color: #5c4da7 !important;
 }
 
 .bg-main:focus {
-    background-color: #c25d5d !important;
+    background-color: #5c4da7 !important;
 }
 
 textarea {
@@ -127,7 +127,7 @@ body.show-spinner>main {
 
 
 .sidebar-menu li a i {
-    color: #c25d5d !important;
+    color: #5c4da7 !important;
     font-size: 20px;
 }
 
@@ -146,11 +146,11 @@ body.show-spinner>main {
 .sidebar-menu li.active a.nav-link {
     font-size: 14px !important;
     border-radius: 15px !important;
-    color: #FC544B !important;
+    color: #5340B4 !important;
 }
 
 .sidebar-mini li.active a.nav-link {
-    background-color: #FC544B !important;
+    background-color: #5340B4 !important;
     box-shadow: none !important;
     color: white !important;
 }
@@ -249,7 +249,7 @@ ul.timeline>li:before {
 /* my background color */
 
 .bg-soft-danger {
-    background-color: #FC544B11 !important;
+    background-color: #5340B411 !important;
 }
 
 .bg-soft-primary {
@@ -438,20 +438,20 @@ a:hover {
 
 .page-item.active .page-link {
     color: #fff !important;
-    background-color: #FC544B !important;
-    border-color: #FC544B !important;
+    background-color: #5340B4 !important;
+    border-color: #5340B4 !important;
 }
 
 .page-link {
-    color: #FC544B !important;
+    color: #5340B4 !important;
     background-color: #fff !important;
     border: 1px solid #dee2e6 !important;
 }
 
 .page-link:hover {
     color: #fff !important;
-    background-color: #FC544B !important;
-    border-color: #FC544B !important;
+    background-color: #5340B4 !important;
+    border-color: #5340B4 !important;
 }
 
 .icon-folder i {
